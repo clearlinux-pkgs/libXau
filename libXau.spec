@@ -4,7 +4,7 @@
 #
 Name     : libXau
 Version  : 1.0.8
-Release  : 8
+Release  : 10
 URL      : http://xorg.freedesktop.org/releases/individual/lib/libXau-1.0.8.tar.bz2
 Source0  : http://xorg.freedesktop.org/releases/individual/lib/libXau-1.0.8.tar.bz2
 Summary  : X authorization file management libary
@@ -43,6 +43,15 @@ Provides: libXau-devel
 dev components for the libXau package.
 
 
+%package dev32
+Summary: dev32 components for the libXau package.
+Group: Default
+Requires: libXau-lib32
+
+%description dev32
+dev32 components for the libXau package.
+
+
 %package doc
 Summary: doc components for the libXau package.
 Group: Documentation
@@ -57,6 +66,14 @@ Group: Libraries
 
 %description lib
 lib components for the libXau package.
+
+
+%package lib32
+Summary: lib32 components for the libXau package.
+Group: Default
+
+%description lib32
+lib32 components for the libXau package.
 
 
 %prep
@@ -98,16 +115,17 @@ popd
 
 %files
 %defattr(-,root,root,-)
-/usr/lib32/libXau.so
-/usr/lib32/libXau.so.6
-/usr/lib32/libXau.so.6.0.0
-/usr/lib32/pkgconfig/32xau.pc
 
 %files dev
 %defattr(-,root,root,-)
 /usr/include/X11/Xauth.h
 /usr/lib64/libXau.so
 /usr/lib64/pkgconfig/xau.pc
+
+%files dev32
+%defattr(-,root,root,-)
+/usr/lib32/libXau.so
+/usr/lib32/pkgconfig/32xau.pc
 
 %files doc
 %defattr(-,root,root,-)
@@ -117,3 +135,8 @@ popd
 %defattr(-,root,root,-)
 /usr/lib64/libXau.so.6
 /usr/lib64/libXau.so.6.0.0
+
+%files lib32
+%defattr(-,root,root,-)
+/usr/lib32/libXau.so.6
+/usr/lib32/libXau.so.6.0.0
