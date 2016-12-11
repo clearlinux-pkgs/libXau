@@ -4,7 +4,7 @@
 #
 Name     : libXau
 Version  : 1.0.8
-Release  : 10
+Release  : 11
 URL      : http://xorg.freedesktop.org/releases/individual/lib/libXau-1.0.8.tar.bz2
 Source0  : http://xorg.freedesktop.org/releases/individual/lib/libXau-1.0.8.tar.bz2
 Summary  : X authorization file management libary
@@ -17,6 +17,8 @@ BuildRequires : gcc-libgcc32
 BuildRequires : gcc-libstdc++32
 BuildRequires : glibc-dev32
 BuildRequires : glibc-libc32
+BuildRequires : pkgconfig(32xorg-macros)
+BuildRequires : pkgconfig(32xproto)
 BuildRequires : pkgconfig(xorg-macros)
 BuildRequires : pkgconfig(xproto)
 
@@ -103,7 +105,7 @@ make VERBOSE=1 V=1 %{?_smp_mflags} check
 %install
 rm -rf %{buildroot}
 pushd ../build32
-%make_install
+%make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
 then
 pushd %{buildroot}/usr/lib32/pkgconfig
